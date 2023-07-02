@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书列表</title>
+</head>
+<body>
+
+<form action="../sims" style="margin: 10px 0">
+    <input name="book_name" placeholder="请输入图书名字" value="{{ book_name }}" style="margin-right: 10px"/>
+    <input name="book_no" placeholder="请输入作者" value="{{ book_no }}" style="margin-right: 10px"/>
+    <button type="submit">查询</button>
+</form>
+<table border="1px" width="100%" style="border-collapse: collapse;">
+    <a href="../sims/add">添加图书</a>
+    <tr>
+        <th>编号</th>
+        <th>图书名字</th>
+        <th>作者</th>
+        <th>操作</th>
+    </tr>
+    {% for book in books %}
+        <tr>
+            <td align="center">{{ forloop.counter }} </td>
+            <td align="center">{{ book.book_name }} </td>
+            <td align="center">{{ book.book_no }} </td>
+            <td align="center">
+                <a href="../sims/edit/?id={{ book.id }}">
+                    编辑
+                </a>
+                <a href="../sims/delete/?id={{ book.id }}">
+                    删除
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

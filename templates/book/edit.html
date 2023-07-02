@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书编辑</title>
+    <style>
+        form {
+            margin: 20px auto;
+            width: 500px;
+            border: 1px solid #ccc;
+            padding: 20px
+        }
+    </style>
+</head>
+<body>
+<form method="post" action="../edit/">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ book.id }}"/>
+
+    <table>
+        <tr>
+            <th>图书名字</th>
+            <td><input name="book_name" value="{{ book.book_name }}"></td>
+        </tr>
+        <tr>
+            <th>作者</th>
+            <td><input name="book_no" value="{{ book.book_no }}"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
